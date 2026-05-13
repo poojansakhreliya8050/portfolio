@@ -1137,8 +1137,10 @@ window.addEventListener("mousemove", (e) => {
 
 navLinks.forEach((link) => {
   link.addEventListener("click", (e) => {
+    const id = link.getAttribute("data-section");
+    if (!id) return; // Allow external links (like Resume) to function normally
+
     e.preventDefault();
-    const id = link.getAttribute("data-section")!;
 
     // Close mobile menu on click
     mobileToggle?.classList.remove("active");
@@ -1163,20 +1165,28 @@ mobileToggle?.addEventListener("click", () => {
 
 // Intro buttons smooth scroll
 document.querySelector(".primary-btn")?.addEventListener("click", (e) => {
-  e.preventDefault();
-  gsap.to(window, {
-    scrollTo: "#projects",
-    duration: 2.5,
-    ease: "power4.inOut",
-  });
+  const href = (e.currentTarget as HTMLAnchorElement).getAttribute("href");
+  if (href?.startsWith("#")) {
+    e.preventDefault();
+    gsap.to(window, {
+      scrollTo: href,
+      duration: 2.5,
+      ease: "power4.inOut",
+    });
+  }
 });
 
-document.querySelector(".secondary-btn")?.addEventListener("click", (e) => {
-  e.preventDefault();
-  gsap.to(window, {
-    scrollTo: "#contact",
-    duration: 2.5,
-    ease: "power4.inOut",
+document.querySelectorAll(".secondary-btn").forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    const href = (btn as HTMLAnchorElement).getAttribute("href");
+    if (href?.startsWith("#")) {
+      e.preventDefault();
+      gsap.to(window, {
+        scrollTo: href,
+        duration: 2.5,
+        ease: "power4.inOut",
+      });
+    }
   });
 });
 
