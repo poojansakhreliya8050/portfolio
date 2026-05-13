@@ -444,24 +444,59 @@ h2 { font-size: 3.5rem; font-weight: 800; text-transform: uppercase; margin-bott
 
 .contact-container.simple {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
 }
 
 .social-links.centered {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
     max-width: 900px;
     width: 100%;
+}
+
+.social-card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
 
 .social-card.featured {
     border-color: rgba(74, 222, 128, 0.3);
     background: rgba(74, 222, 128, 0.05);
+    padding: 30px;
 }
+
+.social-card.featured .social-icon { font-size: 2.2rem; }
+.social-card.featured .social-info span { font-size: 1.1rem; }
 
 .social-card.featured:hover {
     background: rgba(74, 222, 128, 0.1);
     border-color: var(--primary);
+}
+
+.footer {
+    margin-top: 80px;
+    padding: 40px 0 20px;
+    text-align: center;
+    border-top: 1px solid var(--glass-border);
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    width: 100%;
+}
+
+@media (max-width: 850px) {
+    .social-links.centered {
+        grid-template-columns: 1fr;
+    }
 }
 
 .contact-form { width: 100%; margin: 0; }
@@ -537,43 +572,6 @@ input:focus, textarea:focus {
 .form-status.success { color: var(--primary); background: rgba(74, 222, 128, 0.1); border: 1px solid rgba(74, 222, 128, 0.2); }
 .form-status.error { color: #ff4d4d; background: rgba(255, 77, 77, 0.1); border: 1px solid rgba(255, 77, 77, 0.2); }
 
-.social-links {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-}
-
-.social-card {
-    background: var(--glass);
-    border: 1px solid var(--glass-border);
-    border-radius: 16px;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.social-card:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: var(--primary);
-    transform: translateX(10px);
-}
-
-.social-icon { font-size: 1.8rem; }
-.social-info { display: flex; flex-direction: column; gap: 4px; }
-.social-info label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-dim); }
-.social-info span { font-size: 0.95rem; color: var(--text); font-weight: 600; }
-
-.footer {
-    margin-top: 100px;
-    padding: 40px 0;
-    text-align: center;
-    border-top: 1px solid var(--glass-border);
-    color: var(--text-dim);
-    font-size: 0.8rem;
-}
 
 /* Skill Carousel UI */
 .skill-nav {
