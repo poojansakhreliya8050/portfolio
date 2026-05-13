@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Poojan | Software Engineer</title>
+    <meta name="description" content="Portfolio of a Software Engineer specializing in MERN, AWS, and Gen AI." />
+    <style>
+      /* Critical CSS for Preloader */
+      :root {
+        --bg: #080808;
+        --primary: #4ade80;
+      }
+      body:not(.loaded) {
+        overflow: hidden;
+        height: 100vh;
+      }
+      body {
+        background-color: var(--bg);
+        margin: 0;
+      }
+      #preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--bg);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.8s cubic-bezier(0.77, 0, 0.175, 1), visibility 0.8s;
+      }
+      .loader-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+      .loader-logo {
+        font-family: 'Outfit', sans-serif;
+        font-weight: 800;
+        font-size: 2.5rem;
+        letter-spacing: 12px;
+        color: #fff;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: logoFadeIn 1s ease forwards;
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+      }
+      .loader-bar-container {
+        width: 200px;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+      }
+      .loader-bar {
+        width: 0%;
+        height: 100%;
+        background: var(--primary);
+        box-shadow: 0 0 15px var(--primary);
+        transition: width 0.4s ease;
+      }
+      .loader-text {
+        font-family: 'Outfit', sans-serif;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        color: #666;
+        margin-top: 10px;
+      }
+      @keyframes logoFadeIn {
+        to { opacity: 1; transform: translateY(0); }
+      }
+      #app, .navbar, .webgl {
+        opacity: 0;
+        transition: opacity 1s ease;
+      }
+      body.loaded #app, 
+      body.loaded .navbar, 
+      body.loaded .webgl {
+        opacity: 1;
+      }
+      body.loaded #preloader {
+        opacity: 0;
+        visibility: hidden;
+      }
+    </style>
+    <script type="module" crossorigin src="/portfolio/assets/index-B7UeyS9d.js"></script>
+    <link rel="stylesheet" crossorigin href="/portfolio/assets/index-Dtf3bgAs.css">
+  </head>
+  <body>
+    <div id="preloader">
+      <div class="loader-content">
+        <div class="loader-logo">POOJAN</div>
+        <div class="loader-bar-container">
+          <div id="loader-bar" class="loader-bar"></div>
+        </div>
+        <div class="loader-text">Initializing Systems</div>
+      </div>
+    </div>
+
+    <canvas class="webgl"></canvas>
+
+    <nav class="navbar">
+      <div class="nav-logo">POOJAN</div>
+      <div class="mobile-toggle" id="mobile-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="nav-links">
+        <div class="nav-indicator"></div>
+        <a href="#intro" class="nav-link active" data-section="intro">Intro</a>
+        <a href="#skills" class="nav-link" data-section="skills">Skills</a>
+        <a href="#projects" class="nav-link" data-section="projects">Projects</a>
+        <a href="#experience" class="nav-link" data-section="experience">Experience</a>
+        <a href="#achievements" class="nav-link" data-section="achievements">Achievements</a>
+        <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+      </div>
+    </nav>
+
+    <div id="app">
+      <!-- Intro Section -->
+      <section id="intro" class="section">
+        <div class="intro-container">
+          <div class="intro-content centered">
+            <span class="greeting">Hello, I am</span>
+            <h1>Poojan</h1>
+            <p>A <span class="highlight">Full-Stack Architect</span> & <span class="highlight">Creative Developer</span> dedicated to building immersive, high-performance digital experiences.</p>
+            <div class="intro-btns">
+              <a href="#projects" class="primary-btn">View My Work</a>
+              <a href="#contact" class="secondary-btn">Let's Talk</a>
+            </div>
+          </div>
+        </div>
+        <div class="scroll-indicator">
+          <div class="mouse">
+            <div class="wheel"></div>
+          </div>
+          <div class="scroll-text">Scroll Down</div>
+        </div>
+      </section>
+
+      <!-- Skills Section (The Engine) -->
+      <section id="skills" class="section">
+        <div class="content">
+          <h1 id="engine-title">Software Engineer</h1>
+          <p id="engine-description">Architecting the future through <span class="highlight">Abstract Data Engines</span> and <span class="highlight">Neural Intelligence</span>.</p>
+        </div>
+
+        <div class="footer-hint"></div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="section overlay">
+        <div class="section-content">
+          <h2>Featured Projects</h2>
+          <div class="projects-grid">
+            <!-- Project 1: GoodDeedIt -->
+            <div class="project-card">
+              <div class="project-icon">🤝</div>
+              <h3>GoodDeedIt</h3>
+              <p>A real-time community assistance platform connecting individuals in need with local experts. Features a seamless workflow from real-time chat negotiation to deed completion, powered by dynamic geospatial logic for localized request discovery.</p>
+              <div class="tags">
+                <span>Node.js</span><span>ExpressJS</span><span>TypeScript</span><span>MongoDB</span><span>AWS</span><span>Socket.io</span><span>Geospatial Logic</span>
+              </div>
+              <div class="project-links">
+                <a href="https://www.gooddeedit.com/" target="_blank" class="project-link">Visit Website ↗</a>
+              </div>
+            </div>
+
+            <!-- Project 2: Mobile Advantage -->
+            <div class="project-card">
+              <div class="project-icon">🛒</div>
+              <h3>Mobile Advantage</h3>
+              <p>An enterprise-grade B2B2C platform that enables employees of large organizations to buy, sell, or repair devices. Features a seamless payroll integration for automated EMI deductions directly from salaries, providing a streamlined hardware benefit system.</p>
+              <div class="tags">
+                <span>Node.js</span><span>Express</span><span>MongoDB</span><span>SendGrid</span><span>AWS ECR</span><span>SAML SSO</span>
+              </div>
+              <div class="project-links">
+                <a href="https://mobileadvantage.co.uk/" target="_blank" class="project-link">Visit Store ↗</a>
+              </div>
+            </div>
+
+            <!-- Project 3: LoanBot -->
+            <div class="project-card">
+              <div class="project-icon">🤖</div>
+              <h3>LoanBot</h3>
+              <p>Backend API service designed to handle loan-related processes and automated communications via Slack and Sendgrid.</p>
+              <div class="tags">
+                <span>Node.js</span><span>TypeScript</span><span>Express</span><span>MongoDB</span><span>Redis</span><span>AWS SDK</span><span>Socket.io</span>
+              </div>
+              <div class="project-links">
+                <a href="https://play.google.com/store/apps/details?id=com.loanbot&pcampaignid=web_share" target="_blank" class="project-link">Play Store ↗</a>
+              </div>
+            </div>
+
+            <!-- Project 4: GenTrax -->
+            <div class="project-card">
+              <div class="project-icon">🏭</div>
+              <h3>GenTrax</h3>
+              <p>An industrial IoT platform for real-time forklift tracking and warehouse safety. Telemetry data flows through MQTT into InfluxDB for time-series analysis, with aggregated metrics in PostgreSQL. Features live route heatmaps and automated geofencing.</p>
+              <div class="tags">
+                <span>Node.js</span><span>MQTT</span><span>InfluxDB</span><span>PostgreSQL</span><span>IoT</span><span>Microservices</span>
+              </div>
+              <div class="project-links">
+                <a href="https://tracking.gentrax.in/jsp/login/gentrax" target="_blank" class="project-link">Visit Project ↗</a>
+              </div>
+            </div>
+
+            <!-- Project 5: AlleForge -->
+            <div class="project-card">
+              <div class="project-icon">⚒️</div>
+              <h3>AlleForge</h3>
+              <p>Comprehensive API development and testing platform with robust collaboration features and desktop agent for request handling.</p>
+              <div class="tags">
+                <span>Node.js</span><span>TypeScript</span><span>Express</span><span>MongoDB</span><span>Socket.io</span><span>AWS</span><span>Electron</span>
+              </div>
+            </div>
+
+            <!-- Project 6: LootUs -->
+            <div class="project-card">
+              <div class="project-icon">🛠️</div>
+              <h3>LootUs</h3>
+              <p>Highly scalable, serverless backend architecture handling administrative functions, financial data integrations, and automated workflows.</p>
+              <div class="tags">
+                <span>Node.js</span><span>TypeScript</span><span>AWS Lambda</span><span>PostgreSQL</span><span>Plaid</span><span>Stripe</span><span>OpenAI</span><span>Puppeteer</span>
+              </div>
+              <div class="project-links">
+                <a href="https://www.getloot.com/" target="_blank" class="project-link">Visit Website ↗</a>
+              </div>
+            </div>
+
+            <!-- Project 7: PaysInvoice -->
+            <div class="project-card">
+              <div class="project-icon">🧾</div>
+              <h3>PaysInvoice</h3>
+              <p>Secure invoicing and payment processing backend with 2FA, Puppeteer-based PDF generation, and multi-cloud storage.</p>
+              <div class="tags">
+                <span>Node.js</span><span>TypeScript</span><span>Express</span><span>MongoDB</span><span>Redis</span><span>Stripe</span><span>Puppeteer</span><span>AWS S3</span>
+              </div>
+            </div>
+
+            <!-- Project 8: ThisWorks -->
+            <div class="project-card">
+              <div class="project-icon">🧠</div>
+              <h3>ThisWorks</h3>
+              <p>Modern backend API leveraging OpenAI for AI functionalities and AWS CloudFront for secure content delivery.</p>
+              <div class="tags">
+                <span>Node.js</span><span>TypeScript</span><span>Express</span><span>MongoDB</span><span>OpenAI</span><span>AWS SQS</span><span>CloudFront</span>
+              </div>
+            </div>
+
+            <!-- Project 9: Paytrail JS SDK -->
+            <div class="project-card">
+              <div class="project-icon">📦</div>
+              <h3>Paytrail JS SDK</h3>
+              <p>Official JavaScript/TypeScript SDK for the Paytrail payment gateway, supporting 20+ payment methods and tokenized cards.</p>
+              <div class="tags">
+                <span>TypeScript</span><span>Node.js</span><span>Axios</span><span>class-validator</span><span>Jest</span>
+              </div>
+              <div class="project-links">
+                <a href="https://www.paytrail.com/en/" target="_blank" class="project-link">Visit Paytrail ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section id="experience" class="section overlay">
+        <div class="section-content">
+          <h2>Experience</h2>
+          <div class="experience-timeline">
+            <div class="timeline-item">
+              <div class="time">July 2025 - Present</div>
+              <div class="info">
+                <h3>Junior Software Engineer</h3>
+                <p>Developing and maintaining high-performance enterprise applications, focusing on scalable backend architectures and real-time systems.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="time">Jan 2025 - June 2025</div>
+              <div class="info">
+                <h3>Software Engineer Intern</h3>
+                <p>Gained hands-on experience in full-stack development, contributing to core product features and API optimizations.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Achievements Section -->
+      <section id="achievements" class="section overlay">
+        <div class="section-content">
+          <h2>Achievements & Awards</h2>
+          <div class="achievements-mini">
+            <div class="mini-card"><span>10+</span><label>Projects</label></div>
+            <a href="https://leetcode.com/u/poojansakhreliya/" target="_blank" style="text-decoration: none;">
+              <div class="mini-card"><span>400+</span><label>LeetCode</label></div>
+            </a>
+            <div class="mini-card"><span>1k+</span><label>Commits</label></div>
+          </div>
+
+          <div class="awards-section">
+            <h3 class="section-subtitle">Awards & Recognition</h3>
+            <div class="awards-grid">
+              <div class="award-card">
+                <div class="award-icon">🌟</div>
+                <div class="award-info">
+                  <h4>Rising Star Award</h4>
+                  <p>Thinkwik | 2025-26</p>
+                </div>
+              </div>
+              <div class="award-card">
+                <div class="award-icon">🏆</div>
+                <div class="award-info">
+                  <h4>1st Rank - Code Jigsaw</h4>
+                  <p>GLS University | 2024</p>
+                </div>
+              </div>
+              <div class="award-card">
+                <div class="award-icon">💎</div>
+                <div class="award-info">
+                  <h4>IT Treasure Hunt Winner</h4>
+                  <p>GLS University | 2024</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="section overlay">
+        <div class="section-content">
+          <h2>Get In Touch</h2>
+          <form class="contact-form">
+            <div class="form-group"><input type="text" placeholder="Your Name" required></div>
+            <div class="form-group"><input type="email" placeholder="Your Email" required></div>
+            <div class="form-group"><textarea placeholder="Tell me about your vision..." rows="5" required></textarea></div>
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+        </div>
+      </section>
+    </div>
+
+  </body>
+</html>
