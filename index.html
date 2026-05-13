@@ -339,13 +339,62 @@
       <section id="contact" class="section overlay">
         <div class="section-content">
           <h2>Get In Touch</h2>
-          <form class="contact-form">
-            <div class="form-group"><input type="text" placeholder="Your Name" required></div>
-            <div class="form-group"><input type="email" placeholder="Your Email" required></div>
-            <div class="form-group"><textarea placeholder="Tell me about your vision..." rows="5" required></textarea></div>
-            <button type="submit" class="submit-btn">Send Message</button>
-          </form>
+          <p class="contact-subtitle">Have a project in mind or just want to say hi? Feel free to reach out!</p>
+          
+          <div class="contact-container">
+            <form id="contact-form" class="contact-form" action="https://formspree.io/f/mqakvjge" method="POST">
+              <div class="form-group">
+                <input type="text" name="name" placeholder="Your Name" required>
+              </div>
+              <div class="form-group">
+                <input type="email" name="email" placeholder="Your Email" required>
+              </div>
+              <div class="form-group">
+                <textarea name="message" placeholder="Tell me about your vision..." rows="5" required></textarea>
+              </div>
+              <button type="submit" id="submit-btn" class="submit-btn">
+                <span class="btn-text">Send Message</span>
+                <span class="btn-loader"></span>
+              </button>
+              <div id="form-status" class="form-status"></div>
+            </form>
+
+            <div class="social-links">
+              <a href="https://github.com/poojansakhreliya8050" target="_blank" class="social-card">
+                <div class="social-icon">💻</div>
+                <div class="social-info">
+                  <label>GitHub</label>
+                  <span>@poojansakhreliya8050</span>
+                </div>
+              </a>
+              <a href="https://linkedin.com/in/poojan-sakhreliya" target="_blank" class="social-card">
+                <div class="social-icon">👔</div>
+                <div class="social-info">
+                  <label>LinkedIn</label>
+                  <span>Poojan Sakhreliya</span>
+                </div>
+              </a>
+              <a href="mailto:poojansakhreliya8050@gmail.com" class="social-card">
+                <div class="social-icon">📧</div>
+                <div class="social-info">
+                  <label>Email</label>
+                  <span>poojansakhreliya8050@gmail.com</span>
+                </div>
+              </a>
+              <a href="https://leetcode.com/u/poojansakhreliya/" target="_blank" class="social-card">
+                <div class="social-icon">🧩</div>
+                <div class="social-info">
+                  <label>LeetCode</label>
+                  <span>poojansakhreliya</span>
+                </div>
+              </a>
+            </div>
+          </div>
         </div>
+        
+        <footer class="footer">
+          <p>© 2026 Poojan Sakhreliya. Built with Three.js & Passion.</p>
+        </footer>
       </section>
     </div>
 

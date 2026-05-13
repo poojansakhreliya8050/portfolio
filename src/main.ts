@@ -1227,3 +1227,47 @@ if (loaderBar) {
 }
 
 tick();
+
+// Contact Form Handling
+const contactForm = document.getElementById("contact-form") as HTMLFormElement;
+const formStatus = document.getElementById("form-status");
+const submitBtn = document.getElementById("submit-btn");
+
+contactForm?.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  if (!submitBtn || !formStatus) return;
+
+  submitBtn.classList.add("loading");
+  formStatus.classList.remove("show", "success", "error");
+  formStatus.textContent = "";
+
+  const formData = new FormData(contactForm);
+
+  try {
+    const response = await fetch(contactForm.action, {
+      method: "POST",
+      body: formData,
+      headers: {
+        Accept: "application/json",
+      },
+    });
+
+    if (response.ok) {
+      formStatus.textContent = "Thanks! Your message has been sent.";
+      formStatus.classList.add("show", "success");
+      contactForm.reset();
+    } else {
+      const data = await response.json();
+      formStatus.textContent =
+        data.errors?.map((err: any) => err.message).join(", ") ||
+        "Oops! There was a problem submitting your form";
+      formStatus.classList.add("show", "error");
+    }
+  } catch (error) {
+    formStatus.textContent = "Oops! There was a problem submitting your form";
+    formStatus.classList.add("show", "error");
+  } finally {
+    submitBtn.classList.remove("loading");
+  }
+});
