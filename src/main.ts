@@ -120,7 +120,7 @@ const getVortex = (
   }
 };
 
-const getSoftwareEngineer = (arr: Float32Array, colArr?: Float32Array) => {
+const getSoftwareEngineer = (arr: Float32Array, _colArr?: Float32Array) => {
   for (let i = 0; i < logoCount; i++) {
     const i3 = i * 3;
     if (i < logoCount * 0.3) {
@@ -150,7 +150,7 @@ const getSoftwareEngineer = (arr: Float32Array, colArr?: Float32Array) => {
   getVortex(arr, logoCount, count);
 };
 
-const getMERN = (arr: Float32Array, colArr?: Float32Array) => {
+const getMERN = (arr: Float32Array, _colArr?: Float32Array) => {
   for (let i = 0; i < logoCount; i++) {
     const i3 = i * 3;
     const section = Math.floor(i / (logoCount / 4)),
@@ -187,7 +187,7 @@ const getMERN = (arr: Float32Array, colArr?: Float32Array) => {
   getVortex(arr, logoCount, count);
 };
 
-const getSocketWebRTC = (arr: Float32Array, colArr?: Float32Array) => {
+const getSocketWebRTC = (arr: Float32Array, _colArr?: Float32Array) => {
   for (let i = 0; i < logoCount; i++) {
     const i3 = i * 3;
     const rand = Math.random();
@@ -343,7 +343,7 @@ const getDocker = (arr: Float32Array, colArr?: Float32Array) => {
   getVortex(arr, logoCount, count);
 };
 
-const getCloud = (arr: Float32Array, colArr?: Float32Array) => {
+const getCloud = (arr: Float32Array, _colArr?: Float32Array) => {
   // ═══ REFINED CLOUD PATH PARAMETERS ═══
   const BASE_Y = -0.8;
 
@@ -403,7 +403,7 @@ const getCloud = (arr: Float32Array, colArr?: Float32Array) => {
   getVortex(arr, logoCount, count);
 };
 
-const getSQL = (arr: Float32Array, colArr?: Float32Array) => {
+const getSQL = (arr: Float32Array, _colArr?: Float32Array) => {
   const pPerSec = Math.floor(logoCount / 3);
 
   // 1. SQL (The Classic Stack - Left)
@@ -446,7 +446,7 @@ const getSQL = (arr: Float32Array, colArr?: Float32Array) => {
   getVortex(arr, logoCount, count);
 };
 
-const getProblemSolving = (arr: Float32Array, colArr?: Float32Array) => {
+const getProblemSolving = (arr: Float32Array, _colArr?: Float32Array) => {
   const BULB_R = 2.4;
   const BULB_Y = 1.8;
   const NECK_R = 1.0;
@@ -563,7 +563,7 @@ function sendToVortex(arr: Float32Array, i3: number) {
   arr[i3 + 2] = Math.sin(vA) * vR;
 }
 
-const getGenAI = (arr: Float32Array, colArr?: Float32Array) => {
+const getGenAI = (arr: Float32Array, _colArr?: Float32Array) => {
   for (let i = 0; i < logoCount; i++) {
     const i3 = i * 3;
     const layer = Math.floor(Math.random() * 3),
