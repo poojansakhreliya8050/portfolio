@@ -163,6 +163,14 @@ body:not(.loaded) {
     transform: translateY(0);
 }
 
+#skills .content {
+    text-align: center;
+    padding: 20px;
+    z-index: 10;
+    pointer-events: none;
+    max-width: 90vw;
+}
+
 /* Intro Section */
 .intro-container {
     display: flex;
@@ -357,7 +365,7 @@ body:not(.loaded) {
 
 .awards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 25px;
 }
 
@@ -557,6 +565,9 @@ h2 { font-size: 3.5rem; font-weight: 800; text-transform: uppercase; margin-bott
 @media (max-width: 850px) {
     .social-links.centered {
         grid-template-columns: 1fr;
+    }
+    .resume-card {
+        grid-column: span 1;
     }
 }
 
@@ -794,7 +805,7 @@ input:focus, textarea:focus {
     }
 
     .projects-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 15px;
     }
 
@@ -817,6 +828,43 @@ input:focus, textarea:focus {
 
     h2 { font-size: 2.2rem; }
     .section-subtitle { font-size: 1rem; letter-spacing: 2px; }
-    .intro-content h1 { font-size: 3.5rem; }
-    .intro-content p { font-size: 1.1rem; }
+    .intro-content h1 { font-size: 3rem; }
+    .intro-content p { font-size: 1.1rem; margin-bottom: 25px; }
+
+    .intro-btns {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+    
+    .intro-btns a {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .timeline-item {
+        flex-direction: column;
+        gap: 10px;
+        padding-left: 25px;
+    }
+
+    .time {
+        min-width: auto;
+    }
+
+    .skill-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 95%;
+        bottom: 50px;
+        padding: 10px;
+        gap: 5px;
+    }
+    
+    .skill-tab {
+        padding: 4px 6px;
+    }
+    
+    .skill-progress-bg { width: 15px; }
 }
