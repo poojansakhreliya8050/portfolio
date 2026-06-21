@@ -121,7 +121,7 @@ const getVortex = (
 };
 
 const getSoftwareEngineer = (arr: Float32Array, _colArr?: Float32Array) => {
-  for (let i = 0; i < logoCount; i++) {
+  for (let i = 0; i < logoCount * 0.5; i++) {
     const i3 = i * 3;
     if (i < logoCount * 0.3) {
       if (i < logoCount * 0.15) {
@@ -133,21 +133,15 @@ const getSoftwareEngineer = (arr: Float32Array, _colArr?: Float32Array) => {
         arr[i3 + 1] = 0.5 - Math.random() * 0.5;
         arr[i3 + 2] = Math.random() * 2.0;
       }
-    } else if (i < logoCount * 0.5) {
+    } else {
       const angle = Math.random() * Math.PI * 2,
         r = 3.8 + (Math.sin(angle * 10) > 0 ? 0.5 : 0);
       arr[i3] = Math.cos(angle) * r;
       arr[i3 + 1] = Math.sin(angle) * r + 1.2;
       arr[i3 + 2] = -1.5;
-    } else {
-      const side = Math.random() > 0.5 ? 1 : -1,
-        t = (Math.random() - 0.5) * 2;
-      arr[i3] = side * 4.5 + (Math.random() - 0.5) * 1.5;
-      arr[i3 + 1] = t * 3.0 + 1.5;
-      arr[i3 + 2] = (Math.random() - 0.5) * 3.0;
     }
   }
-  getVortex(arr, logoCount, count);
+  getVortex(arr, logoCount * 0.5, count);
 };
 
 const getMERN = (arr: Float32Array, _colArr?: Float32Array) => {
@@ -606,10 +600,10 @@ const setTargetColor = (
 getSoftwareEngineer(positions);
 getSoftwareEngineer(nextPositions);
 const initialColor = new THREE.Color("#ffffff");
-setTargetColor(colors, initialColor, 0, logoCount);
-setTargetColor(nextColors, initialColor, 0, logoCount);
-setTargetColor(colors, new THREE.Color("#333333"), logoCount, count);
-setTargetColor(nextColors, new THREE.Color("#333333"), logoCount, count);
+setTargetColor(colors, initialColor, 0, logoCount * 0.5);
+setTargetColor(nextColors, initialColor, 0, logoCount * 0.5);
+setTargetColor(colors, new THREE.Color("#333333"), logoCount * 0.5, count);
+setTargetColor(nextColors, new THREE.Color("#333333"), logoCount * 0.5, count);
 for (let i = 0; i < count; i++) sizesArray[i] = Math.random();
 
 geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
@@ -777,6 +771,7 @@ const softwareEngineerShape = {
   desc: "Architecting the future through Abstract Data Engines.",
   gen: getSoftwareEngineer,
   color: "#ffffff",
+  logoParticlesCount: logoCount * 0.5,
 };
 
 const skillShapes = [
@@ -907,12 +902,14 @@ function morphToShape(target: any, force: boolean = false) {
     nextColAttr.array as Float32Array,
   );
 
+  const currentLogoCount = target.logoParticlesCount || logoCount;
+
   if (!target.customColor) {
     setTargetColor(
       nextColAttr.array as Float32Array,
       new THREE.Color(target.color),
       0,
-      logoCount,
+      currentLogoCount,
     );
   }
 
@@ -921,7 +918,7 @@ function morphToShape(target: any, force: boolean = false) {
     setTargetColor(
       nextColAttr.array as Float32Array,
       new THREE.Color("#333333"),
-      logoCount,
+      currentLogoCount,
       count,
     );
   }
